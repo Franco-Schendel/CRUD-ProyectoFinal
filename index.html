@@ -8,7 +8,7 @@
         <title>FilmoPolis</title>
     </head>
     <body class="body-index">
-        <main class="index">
+        <main class="index" id="app">
             <div class="contenedor centrado">
                 <div class="logo">
                     <img src="./img/Filmopolis.png" alt="Logo-Filmopolis" class="logo-imagen">
@@ -22,19 +22,20 @@
             <form id="ingresar" class="formulario centrado">
                 <i class='bx bx-message-square-x salir' onclick="cerrar('ingresar')"></i>
                 <h2>Inicar sesión</h2>
-                <input type="text" placeholder="Crear usuario">
-                <input type="password" placeholder="Crear contraseña">
-                <input type="submit" value="Ingresar">
+                <input type="text" placeholder="Usuario" v-model="nombre">
+                <input type="password" placeholder="Contraseña" v-model="contrasenia">
+                <input type="button" value="Confirmar" v-on:click="fetchData()">
             </form>
             <form id="registrarse" class="formulario centrado">
                 <i class='bx bx-message-square-x salir' onclick="cerrar('registrarse')"></i>
                 <h2>Registrarse</h2>
-                <input type="text" placeholder="Usuario">
-                <input type="password" placeholder="Contraseña">
-                <input type="submit" value="Registrase">
+                <input type="text" placeholder="Crear usuario" v-model="nombre">
+                <input type="password" placeholder="Crear contraseña" v-model="contrasenia">
+                <input type="button" value="Confirmar" v-on:click="grabar()">
             </form>
             
         </main>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

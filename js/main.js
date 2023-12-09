@@ -1,70 +1,75 @@
-// script.js
-let url = "https://francoschendel.pythonanywhere.com"
-document.getElementById("header").innerHTML = `
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand">Navbar</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-              <li class="nav-item dropdown">
-                  <a class="nav-link" href="#">CRUD</a>
-              </li>
-          </ul>
-          <form id="searchForm" class="d-flex my-2 my-lg-0">
-              <input class="form-control me-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      </div>
-    </div>
-  </nav>
-`;  
+function mostrar(tipo) {
+    formulario = document.getElementById(tipo)
+    formulario.classList.add("mostrar")
+}
 
-document.getElementById("searchForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const contenidoTabla = document.getElementById("tableBody") 
-  let busqueda = document.getElementById("searchForm").querySelector("input").value;
-  busqueda = formatear(busqueda)
-  contenidoTabla.innerHTML = ""
-  fetch(url + "/peliculas")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        let titulo
-        let j
-        for(let i = 0; i < data.length; i++) {
-            j = 0
-            titulo = data[i].nombre
-            titulo = formatear(titulo)
-            while(j != -1 && j < busqueda.length) {
-                busqueda[j] == titulo[j]? j++ : j = -1
+function cerrar(tipo) {
+    formulario = document.getElementById(tipo)
+    formulario.classList.remove("mostrar")
+}
+
+const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+        url:'https://francoschendel.pythonanywhere.com',   // si ya lo subieron a pythonanywhere
+        error:false,
+        nombre:"", 
+        contrasenia:""
+    }  
+    },
+    methods: {
+        fetchData() {
+            if(this.nombre.length > 20 || this.nombre.length < 1 || this.contrasenia.length > 20 || this.contrasenia.length < 1) {
+                alert("Ingrese un nombre y contraseña validos (maximo 20 caracteres)")
+            } else {
+                fetch(this.url + `/validar-usuario/${this.nombre}/${this.contrasenia}`)
+                .then(response => response.json())
+                .then(data => {
+                    switch(data) {
+                        case "":
+                            alert("El usuario o contraseña es incorrecto")
+                            break
+                        case "admin":
+                            window.location.href = "./CRUD.html"
+                            break;
+                        case "cliente":
+                            window.location.href = "./peliculas.html"
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    this.error=true              
+                })
             }
-            if(j != -1) {
-                contenidoTabla.innerHTML += `
-                <tr class=""  v-for="pelicula in peliculas">
-                    <td scope="row">${data.id}</td>
-                    <td>${data[i].nombre}</td>
-                    <td>${data[i].descripcion}</td>
-                    <td>
-                        <img width="60" src="${data[i].imagen}" alt="${data[i].nombre}">
-                    </td>
-                    <td>
-                <a class="btn btn-primary" :href="'pelicula_update.html?id='+ pelicula.id" >Editar</a>
-                        <button type="button" class="btn btn-danger" v-on:click="eliminar(${data[i].id})" >Eliminar</button>
-                    </td>
-                </tr>`
+        }, 
+        grabar() {
+            if(this.nombre.length > 20 || this.nombre.length < 1 || this.contrasenia.length > 20 || this.contrasenia.length < 1) {
+                alert("Ingrese un nombre y contraseña validos (maximo 20 caracteres)")
+            } else {
+                var datos_usuario = {
+                    usuario:this.nombre,
+                    contrasenia:this.contrasenia
+                }
+                var options = {
+                    body:JSON.stringify(datos_usuario),
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow'
+                }
+                fetch(this.url + "/usuarios", options)
+                    .then(function (response) {
+                        console.log(response);
+                        return response.json(); // Si la respuesta es un JSON
+                    })
+                    .then(function () {
+                        window.location.href = "./peliculas.html";
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error al Grabar")  // puedo mostrar el error tambien
+                    })
             }
         }
-    })
-    .catch(err => {
-        console.error(err);          
-    })
-});
-
-function formatear(cadena) {
-    cadena = cadena.toLowerCase()
-    return cadena.replace(/\s/g, '');
-}
+    },
+  }).mount('#app')
