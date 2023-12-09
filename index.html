@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <form onsubmit="login(event)" class="formulario">
-        <h1>Ingresar</h1>
-        <input type="text" id="usuario" placeholder="Usuario">
-        <input type="password" id="contra" placeholder="Contraseña">
-        <input type="submit" value="Ingresar">
-    </form>
-    <script src="js/login.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="./styles/index.css">
+        <title>FilmoPolis</title>
+    </head>
+    <body class="body-index">
+        <main class="index">
+            <div class="contenedor centrado">
+                <div class="logo">
+                    <img src="./img/Filmopolis.png" alt="Logo-Filmopolis" class="logo-imagen">
+                </div>
+                <h2>Tu <span class="resaltado">cine</span>, tu tiempo, tu elección.</h2>
+                <div class="contenedor-botones">
+                    <button class="ingresar" onclick="mostrar('ingresar')">Ingresar</button>
+                    <button class="registrarse" onclick="mostrar('registrarse')">Registrarse</button>
+                </div>
+            </div>
+            <form id="ingresar" class="formulario centrado">
+                <i class='bx bx-message-square-x salir' onclick="cerrar('ingresar')"></i>
+                <h2>Inicar sesión</h2>
+                <input type="text" placeholder="Crear usuario">
+                <input type="password" placeholder="Crear contraseña">
+                <input type="submit" value="Ingresar">
+            </form>
+            <form id="registrarse" class="formulario centrado">
+                <i class='bx bx-message-square-x salir' onclick="cerrar('registrarse')"></i>
+                <h2>Registrarse</h2>
+                <input type="text" placeholder="Usuario">
+                <input type="password" placeholder="Contraseña">
+                <input type="submit" value="Registrase">
+            </form>
+            
+        </main>
+        <script src="js/main.js"></script>
+    </body>
 </html>
