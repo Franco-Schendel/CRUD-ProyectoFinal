@@ -9,6 +9,10 @@ table {
     border-collapse: collapse;
 }
 
+table button, table .boton {
+    padding: .5rem;
+}
+
 td, th {
     border: 1px solid #F1DD4B;
     max-width: 300px;

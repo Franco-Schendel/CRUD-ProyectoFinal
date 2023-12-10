@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Peliculas - CRUD</title>
+    <title>FilmoPolis - CRUD</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./styles/style.css">
@@ -51,8 +51,10 @@
                                     <td>{{pelicula.trailer}}</td>
                                     <td>{{pelicula.idioma}}</td>
                                     <td>
-                    			    <a class="boton" :href="'pelicula_update.html?id='+ pelicula.id" >Editar</a>
-                                      <button class="eliminar" v-on:click="eliminar(pelicula.id)" >Eliminar</button>
+                    			        <a class="boton" :href="'pelicula_update.html?id='+ pelicula.id" >Editar</a>
+                                        <br>
+                                        <br>
+                                        <button class="eliminar" v-on:click="eliminar(pelicula.id)" >Eliminar</button>
                                     </td>
                                 </tr>
                             </tbody>
