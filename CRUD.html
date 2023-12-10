@@ -4,6 +4,7 @@
     <title>FilmoPolis - CRUD</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/CRUD.css">
 </head>
@@ -12,7 +13,14 @@
         <div id="app" class="container">
             <h1>CRUD - Peliculas</h1>
             <br>
-            <a class="boton" href="pelicula_nueva.html">Nuevo</a>
+            <div class="fila">
+                <a class="boton" href="pelicula_nueva.html">Nuevo</a>
+                <div class="buscador">
+                    <input id="buscar" type="text" v-model="buscado" placeholder="Buscar pelicula">
+                    <i class='bx bx-search-alt-2 lupita' v-on:click="fetchDataNombre()"></i>
+                </div>
+            </div>
+            
             <br><br>
             <div v-if="error">
                 <p>Lo sentimos , ........</p>

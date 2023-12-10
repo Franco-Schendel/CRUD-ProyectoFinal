@@ -37,3 +37,34 @@ td, th {
     height: 500px;
     width: 60%;
 }
+
+.buscador {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1rem;
+    padding: .4rem;
+    border-width: 0 2px 2px 0;
+    border-color: #F1DD4B;
+    border-style: solid;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buscador input {
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+}
+
+.buscador input:focus {
+    border: none;
+    outline: none;
+}
+
+.buscador .lupita {
+    cursor: pointer;
+}
