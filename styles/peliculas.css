@@ -1,0 +1,160 @@
+h1 {
+    text-align: center;
+}
+
+.header-peliculas {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #F1DD4B;
+    padding: 2rem 8rem;
+}
+
+.contenedor-categorias {
+    position: relative;
+    width: max-content;
+}
+
+.categorias-boton {
+    display:block;
+    background-color: #FAFAFA;
+    width: 100%;
+    color: #0A0A0A;
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    border-radius: 1rem;
+    transition: transform 600ms ease;
+}
+
+.categorias-boton:hover {
+    transform: scale(1.1);
+}
+
+.categorias {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background-color: #B0B0B0;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    z-index: 80;
+}
+
+
+.categorias .categoria {
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 2px solid #F1DD4B;
+    transition: transform 600ms ease;
+}
+
+.categorias .categoria:hover {
+    transform: translateY(-5px);
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1rem;
+    padding: .4rem;
+    border-width: 0 2px 2px 0;
+    border-color: #F1DD4B;
+    border-style: solid;
+}
+
+.buscador input {
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+}
+
+.buscador input:focus {
+    border: none;
+    outline: none;
+}
+
+.buscador .lupita {
+    cursor: pointer;
+}
+
+.buscadores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-peliculas {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem 8rem;
+}
+
+.body-peliculas .pelicula {
+    position: relative;
+    width: 250px;
+    height: 400px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1rem;
+    margin: 1rem 0;
+}
+
+.body-peliculas .pelicula .pelicula-imagen{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+
+.body-peliculas .pelicula .pelicula-imagen:hover {
+    transform: scale(1.15);
+}
+
+.body-peliculas .pelicula .pelicula-titulo{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #272727D0;
+}
+
+.contenedor_info_peli {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info_peli {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+.info_peli .imagen {
+    height: 100%;
+    object-fit: cover;
+    padding: 2rem;
+}
+
+.info_peli .info {
+    width: auto;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.trailer {
+    width: 50%;
+    min-height: 400px;
+    min-width: 560px;
+    margin: auto;
+}
+
+.oculto {
+    display: none;
+}

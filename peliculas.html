@@ -3,52 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/peliculas.css">
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="120"></a></li>
+                <li><a href="peliculas.html"><i class='bx bx-movie icono'></i>Peliculas</a></li>
+                <li><a href="index.html" class="logout"><i class='bx bx-log-out'></i>Log out</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <div id="app" class="container">
-            <h1>Peliculas</h1>
-            <div v-if="error">
-                <p>Lo sentimos , ........</p>
+        <div id="app">
+            <div id="peliculas">
+                <div v-if="error">
+                    <p>Lo sentimos , ........</p>
+                </div>
+                <div v-else>
+                    <section v-if="cargando">
+                        <div class="carga centrado"></div>
+                    </section>
+                    <section v-else>
+                        <div class="header-peliculas">
+                            <h1>Peliculas</h1>
+                            <div class="buscadores">
+                                <div class="contenedor-categorias">
+                                    <div class="categorias-boton" onclick="mostrar_categorias()">Categorias</div>
+                                    <div id="categorias" class="oculto">
+                                        <div class="categoria" onclick="mostrar_categorias()" v-on:click="fetchDataCategoria('animacion')">Animación</div>
+                                        <div class="categoria" onclick="mostrar_categorias()" v-on:click="fetchDataCategoria('fantasia')">Fantasía</div>
+                                    </div>
+                                </div>
+                                    <div class="buscador">
+                                        <input id="buscar" type="text" v-model="buscado" placeholder="Buscar pelicula">
+                                        <i class='bx bx-search-alt-2 lupita' v-on:click="fetchDataNombre()"></i>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="body-peliculas">
+                            <article class="pelicula aparecer" v-for="pelicula in peliculas" v-if="cargar" v-on:click="infoPelicula(pelicula.id)">
+                                <img class="pelicula-imagen" :src="pelicula.imagen" :alt="pelicula.nombre">
+                                <div class="pelicula-titulo">
+                                    <span class="resaltado">{{pelicula.nombre}}</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div v-else>
-                <section v-if="cargando">
-                    <div class="spinner-border"></div>
-                    <p>Cargando .....</p>
-                </section>
-                <section v-else>
-                    <div class="contenedor_peliculas">
-                        <article class="pelicula" v-for="pelicula in peliculas">
-                            <div class="imagen">
-                                <img :src="pelicula.imagen" :alt="pelicula.nombre">
-                            </div>
-                            <div class="contenido">
-                                <h2>{{pelicula.nombre}}</h2>
-                                <p>{{pelicula.descripcion}}</p>
-                            </div>
-                        </article>
-                        <!--table class="table table-bordered">
-                            <tbody id="tableBody">
-                                <tr class=""  v-for="pelicula in peliculas">
-                                    <td>{{pelicula.nombre}}</td>
-                                    <td>{{pelicula.descripcion}}</td>
-                                    <td>
-                                        <img width="60"  :src="pelicula.imagen" :alt="pelicula.nombre">
-                                    </td>
-                                    <td>
-                                <a class="btn btn-primary" :href="'pelicula_update.html?id='+ pelicula.id" >Editar</a>
-                                      <button type="button" class="btn btn-danger" v-on:click="eliminar(pelicula.id)" >Eliminar</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table-->
+            
+            <div id="info_pelicula" class="contenedor_info_peli oculto">
+                <div class="info_peli">
+                    <img class="imagen" :src="pelicula_seleccionada.imagen" :alt="pelicula_seleccionada.nombre">
+                    <div class="info">
+                        <h2>{{pelicula_seleccionada.nombre}}</h2>
+                        <p>{{pelicula_seleccionada.descripcion}}</p>
+                        <iframe class="trailer" :src="pelicula_seleccionada.trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <p>Duracion:        {{pelicula_seleccionada.duracion}}</p>
+                        <p>Idioma:          {{pelicula_seleccionada.idioma}}</p>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
+    <footer>
+        <img class="footer-logo" src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="110">
+        <a href="https://github.com/Franco-Schendel/CRUD-ProyectoFinal" target="_blank"><i class='bx bxl-github icono'></i></a>
+        <span>Copyright &copy 2023 Filmópolis</span>
+    </footer>
     <script 
 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

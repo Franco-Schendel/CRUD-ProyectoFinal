@@ -1,0 +1,35 @@
+
+
+h1 {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #F1DD4B;
+    max-width: 300px;
+    height: 100px;
+    overflow: auto;
+}
+
+.eliminar {
+    background-color: #F00000;
+}
+
+.eliminar:hover {
+    transform: scale(1)
+}
+
+.contenedor-nueva-peli {
+    background-color: #FAFAFAA0;
+    padding: 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 60%;
+}

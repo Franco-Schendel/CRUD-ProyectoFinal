@@ -1,6 +1,4 @@
-console.log(location.search)     // lee los argumentos pasados a este formulario
 var id=location.search.substr(4)  // producto_update.html?id=1
-console.log(id)
 const { createApp } = Vue
   createApp({
     data() {
@@ -9,6 +7,10 @@ const { createApp } = Vue
         nombre:"",
         imagen:"",
         descripcion:"",
+        categoria:"",
+        trailer:"",
+        duracion:0,
+        idioma:"",
         url:'https://francoschendel.pythonanywhere.com/peliculas/'+id,
        }  
     },
@@ -17,11 +19,14 @@ const { createApp } = Vue
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     this.id=data.id
-                    this.nombre = data.nombre;
+                    this.nombre = data.nombre
                     this.imagen=data.imagen
-                    this.descripcion=data.descripcion                
+                    this.descripcion=data.descripcion 
+                    this.categoria=data.categoria
+                    this.trailer=data.trailer
+                    this.duracion=data.duracion
+                    this.idioma=data.idioma     
                 })
                 .catch(err => {
                     console.error(err);
@@ -32,7 +37,12 @@ const { createApp } = Vue
             let producto = {
                 nombre:this.nombre,
                 descripcion: this.descripcion,
-                imagen: this.imagen
+                imagen: this.imagen,
+                categoria : this.categoria,
+                trailer : this.trailer,
+                duracion : this.duracion,
+                idioma : this.idioma  
+
             }
             var options = {
                 body: JSON.stringify(producto),
