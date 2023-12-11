@@ -103,8 +103,8 @@ header nav ul a:hover{
 }
 
 .carga{
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     border: .8rem solid var(--color-primario);
     border-radius: 50%;
     border-top-color: transparent;
