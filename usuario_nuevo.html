@@ -1,0 +1,29 @@
+<DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>FilmoPolis - Agregar Pelicula</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./styles/CRUD.css">
+        <link rel="stylesheet" href="./styles/style.css">
+      </head>
+      <body>
+        <main>
+          <form class="contenedor-nueva-peli centrado" id="app">
+            <h1>Crear usuario</h1>
+            <input type="text" name="usuario" id="usuario" v-model="usuario" placeholder="Usuario">
+            <input type="text" name="contrasenia" id="contrasenia" v-model="contrasenia" placeholder="Contrasenia">
+            <input type="text" name="rango" id="rango" v-model="rango" placeholder="Rango">
+            <button type="button" class="btn btn-success" v-on:click="grabar_usuario()">Grabar</button>
+          </form>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+          </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+          integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+          </script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/peliculas.js"></script>
+      </body>
+    </html>

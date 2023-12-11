@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>FilmoPolis - Editar Pelicula</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/CRUD.css">
+</head>
+<body>
+  <main>
+    <form class="contenedor-nueva-peli centrado" id="app">
+        <h2>Editar Usuario</h2>
+      <input type="text" name="usuario" id="usuario" v-model="usuario" placeholder="Usuario">
+      <input type="text" name="contrasenia" id="contrasenia" v-model="contrasenia" placeholder="Contrasenia">
+      <input type="text" name="rango" id="rango" v-model="rango" placeholder="Rango">
+      <button type="button" class="btn btn-success" v-on:click="modificar_usuario()">Grabar</button>
+    </form>
+  </main>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./js/usuario_editar.js"></script>
+</body>
+</html>

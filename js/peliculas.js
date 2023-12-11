@@ -30,10 +30,15 @@ const { createApp } = Vue
             trailer:"",
             duracion:0,
             idioma:"",
-        }
+        },
+        usuarios:[],
+        id_usuario:0,
+        usuario:"", 
+        contrasenia:"",
+        rango:""
     }  
     },
-    methods: {
+    methods: {//PELICULAS
         fetchData(url) {
             fetch(url + "/peliculas")
                 .then(response => response.json())
@@ -132,9 +137,77 @@ const { createApp } = Vue
                     this.error=true              
                 })
             mostrar()
-        }
+        },//USUARIOS
+        fetchDataUsuarios(url) {
+            fetch(url + "/usuarios")
+                .then(response => response.json())
+                .then(data => {
+                    this.usuarios = data;
+                    console.log(this.usuarios)
+                })
+                .catch(err => {
+                    console.error(err); 
+                })
+        },
+        fetchDataNombreUsuario() {
+            buscado = formatear(this.buscado)
+            fetch(this.url + "/usuarios")
+                .then(response => response.json())
+                .then(data => {
+                    this.usuarios=[]
+                    let nombre
+                    for(let i = 0; i < data.length; i++) {
+                        nombre = formatear(data[i].usuario)
+                        if(nombre.includes(buscado) || buscado.includes(nombre)) {
+                            this.usuarios.push(data[i])
+                        }
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    this.error=true              
+                })
+        },
+        eliminar_usuario(id) {
+            const url = this.url+'/usuarios/' + id;
+            var options = {
+                method: 'DELETE',
+            }
+            fetch(url, options)
+                .then(res => res.text()) // or res.json()
+                .then(res => {
+			        alert('Registro Eliminado')
+                    location.reload(); // recarga el json luego de eliminado el registro
+                })
+        },
+        grabar_usuario() {
+            var datos_usuario = {
+                usuario:this.usuario,
+                contrasenia:this.contrasenia,
+                rango:this.rango
+            }
+            var options = {
+                body:JSON.stringify(datos_usuario),
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow'
+            }
+            fetch(this.url + "/usuarios", options)
+                .then(function (response) {
+                    return response.json(); // Si la respuesta es un JSON
+                })
+                .then(function () {
+                    alert("Usuario Subido")
+                    window.location.href = "./CRUD.html";
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al Grabar")  // puedo mostrar el error tambien
+                })
+            }
     },
     created() {
+        this.fetchDataUsuarios(this.url)
         this.fetchData(this.url)
     },
   }).mount('#app')

@@ -11,17 +11,6 @@
 <body>
     <main>
         <div id="app" class="container">
-            <h1>CRUD - Peliculas</h1>
-            <br>
-            <div class="fila">
-                <a class="boton" href="pelicula_nueva.html">Nuevo</a>
-                <div class="buscador">
-                    <input id="buscar" type="text" v-model="buscado" placeholder="Buscar pelicula" autocomplete="off">
-                    <i class='bx bx-search-alt-2 lupita' v-on:click="fetchDataNombre()"></i>
-                </div>
-            </div>
-            
-            <br><br>
             <div v-if="error">
                 <p>Lo sentimos , ........</p>
             </div>
@@ -30,7 +19,18 @@
                     <div class="spinner-border"></div>
                     <p>Cargando .....</p>
                 </section>
-                <section v-else>
+                <section v-else id="crud_peliculas">
+                    <h2>CRUD - Peliculas</h2>
+                    <br><br>
+                    <a style="text-decoration: underline;" href="#crud_usuarios">CRUD Usuarios</a>
+                    <br><br>
+                    <div class="fila">
+                        <a class="boton" href="pelicula_nueva.html">Nueva Pelicula</a>
+                        <div class="buscador">
+                            <input id="buscar" type="text" v-model="buscado" placeholder="Buscar pelicula" autocomplete="off">
+                            <i class='bx bx-search-alt-2 lupita' v-on:click="fetchDataNombre()"></i>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -63,6 +63,46 @@
                                         <br>
                                         <br>
                                         <button class="eliminar" v-on:click="eliminar(pelicula.id)" >Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="crud_usuarios">
+                    <h2>CRUD - Usuarios</h2>
+                    <br><br>
+                    <a style="text-decoration: underline;" href="#crud_peliculas">CRUD Peliculas</a>
+                    <br><br>
+                    <div class="fila">
+                        <a class="boton" href="usuario_nuevo.html">Nuevo Usuario</a>
+                        <div class="buscador">
+                            <input id="buscar" type="text" v-model="buscado" placeholder="Buscar usuario" autocomplete="off">
+                            <i class='bx bx-search-alt-2 lupita' v-on:click="fetchDataNombreUsuario()"></i>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Usuario</th>
+                                    <th>Contraseña</th>
+                                    <th>Rango</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr class=""  v-for="cliente in usuarios">
+                                    <td>{{cliente.id}}</td>
+                                    <td>{{cliente.usuario}}</td>
+                                    <td>{{cliente.contrasenia}}</td>
+                                    <td>{{cliente.rango}}</td>
+                                    <td>
+                    			        <a class="boton" :href="'usuario_update.html?id='+ cliente.id" >Editar</a>
+                                        <br>
+                                        <br>
+                                        <button class="eliminar" v-on:click="eliminar_usuario(cliente.id)">Eliminar</button>
                                     </td>
                                 </tr>
                             </tbody>
