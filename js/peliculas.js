@@ -48,6 +48,7 @@ const { createApp } = Vue
                     usuario==""?this.logueado=false:this.logueado=true
                     this.peliculas = data;
                     this.cargando=false
+                    document.getElementById("footer").classList.remove("abajo")
                 })
                 .catch(err => {
                     console.error(err);

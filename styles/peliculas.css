@@ -2,6 +2,16 @@ h1 {
     text-align: center;
 }
 
+body {
+    min-height: 100vh;
+}
+
+.abajo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 .header-peliculas {
     border-width: 1px 0;
     border-style: solid;
