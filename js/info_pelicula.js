@@ -33,7 +33,7 @@ const { createApp } = Vue
                     console.error(err);
                     this.error=true              
                 })
-        }
+        }   
     },
     created() {
         this.fetchData(this.url)
