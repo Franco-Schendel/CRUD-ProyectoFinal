@@ -76,12 +76,18 @@ header nav ul {
     justify-content: space-between;
     align-items: center;
 }
-header nav ul a{
+
+header nav ul .pelis {
+    position: relative;
+    left: -18px;
+}
+
+header nav ul a {
     display: inline-block;
     transition: transform 500ms ease;
     font-size: 1.3rem;
 }
-    
+
 header nav ul a:hover{
     transform: scale(1.1);
 }
