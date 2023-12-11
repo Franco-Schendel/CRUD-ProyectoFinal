@@ -18,6 +18,7 @@ td, th {
     max-width: 300px;
     height: 100px;
     overflow: auto;
+    padding: .7rem;
 }
 
 .eliminar {
