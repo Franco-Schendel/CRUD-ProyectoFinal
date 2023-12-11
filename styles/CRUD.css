@@ -1,14 +1,22 @@
+html, body{
+    scroll-behavior:smooth;
+}
+
 main {
     padding: 1rem;
 }
 
-h1 {
+a.boton:hover {
+    transform: scale(1.1) !important;
+}
+
+h2 {
     text-align: center;
 }
 
 table {
-    margin: auto;
     border-collapse: collapse;
+    margin: 1rem auto;
 }
 
 table button, table .boton {
@@ -20,25 +28,22 @@ td, th {
     max-width: 300px;
     height: 100px;
     overflow: auto;
-    padding: .7rem;
+    padding: 1rem;
 }
 
 .eliminar {
     background-color: #F00000;
 }
 
-.eliminar:hover {
-    transform: scale(1)
-}
-
 .contenedor-nueva-peli {
-    background-color: #FAFAFAA0;
+    background-color: #000000A0;
     padding: 2rem 8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 500px;
     width: 60%;
+    border-radius: 1rem;
 }
 
 .buscador {
