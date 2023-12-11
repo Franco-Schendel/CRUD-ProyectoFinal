@@ -1,3 +1,4 @@
+
 # FilmóPolis. Tu cine, tu tiempo, tu decisión.
 ## Indice
   - [Introduccion](#Introduccion)
@@ -25,10 +26,6 @@
     <br><br>
     <img src="./img-readme/Formulario.png" alt="Formulario" width="60%" height="auto">
   </p>
-
-  <div class="flex">
-    <p>aaaaaa</p>
-  </div>
   
   Esta es la pagina `index.html`. Es la primera página a la que accede el usuario, el cual necesita registrarse o iniciar sesión para ingresar.
 ### Cliente
@@ -49,8 +46,3 @@
   </p>
   
   Cuando se accede a la pagina con un usuario de tipo administrador, este es redirigido a `CRUD.html`. En esta página hay una tabla con todos los datos de cada pelicula y botones que permiten modificar los datos de la [API](https://francoschendel.pythonanywhere.com/) (crear, editar y eliminar)
-
-<style>
-  .flex {
-    color: green;
-</style>
