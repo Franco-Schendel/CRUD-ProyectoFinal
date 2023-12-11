@@ -15,7 +15,8 @@ const { createApp } = Vue
         url:'https://francoschendel.pythonanywhere.com',   // si ya lo subieron a pythonanywhere
         error:false,
         nombre:"", 
-        contrasenia:""
+        contrasenia:"",
+        rango:"cliente"
     }  
     },
     methods: {
@@ -49,7 +50,8 @@ const { createApp } = Vue
             } else {
                 var datos_usuario = {
                     usuario:this.nombre,
-                    contrasenia:this.contrasenia
+                    contrasenia:this.contrasenia,
+                    rango:this.rango
                 }
                 var options = {
                     body:JSON.stringify(datos_usuario),
