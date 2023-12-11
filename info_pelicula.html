@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/peliculas.css">
+    <title>FilmoPolis - Informacion</title>
+</head>
+<body>
+    <header id="header"></header>
+    <div id="app" class="contenedor_info_peli">
+        <div class="info_peli">
+            <img class="imagen" :src="imagen" :alt="nombre">
+            <div class="info">
+                <h2>{{nombre}}</h2>
+                <p>{{descripcion}}</p>
+                <iframe class="trailer" :src="trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <p>Duracion: {{duracion}}</p>
+                <p>Idioma: {{idioma}}</p>
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/header_footer.js"></script>
+    <script src="js/info_pelicula.js"></script>
+</body>
+</html>

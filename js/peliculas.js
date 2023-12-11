@@ -43,7 +43,7 @@ const { createApp } = Vue
                 })
                 .catch(err => {
                     console.error(err);
-                    this.error=true              
+                    this.error=true   
                 })
         },
         fetchDataCategoria(categoria) {
@@ -89,7 +89,7 @@ const { createApp } = Vue
             fetch(url, options)
                 .then(res => res.text()) // or res.json()
                 .then(res => {
-			 alert('Registro Eliminado')
+			        alert('Registro Eliminado')
                     location.reload(); // recarga el json luego de eliminado el registro
                 })
         },

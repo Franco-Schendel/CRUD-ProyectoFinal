@@ -9,15 +9,7 @@
     <title>FilmoPolis - Peliculas</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#"><img src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="120"></a></li>
-                <li><a href="peliculas.html"><i class='bx bx-movie icono'></i>Catalogo</a></li>
-                <li><a href="index.html" class="logout"><i class='bx bx-log-out'></i>Log out</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header"></header>
     <main>
         <div id="app">
             <div id="peliculas">
@@ -48,8 +40,10 @@
                             </div>
                         </div>
                         <div class="body-peliculas">
-                            <article class="pelicula aparecer" v-for="pelicula in peliculas" v-if="cargar" v-on:click="infoPelicula(pelicula.id)">
-                                <img class="pelicula-imagen" :src="pelicula.imagen" :alt="pelicula.nombre">
+                            <article class="pelicula aparecer" v-for="pelicula in peliculas" v-if="cargar">
+                                <a :href="'info_pelicula.html?id=' + pelicula.id">
+                                    <img class="pelicula-imagen" :src="pelicula.imagen" :alt="pelicula.nombre">
+                                </a>
                                 <div class="pelicula-titulo">
                                     <span class="resaltado">{{pelicula.nombre}}</span>
                                 </div>
@@ -58,30 +52,11 @@
                     </section>
                 </div>
             </div>
-            
-            <div id="info_pelicula" class="contenedor_info_peli oculto">
-                <div class="info_peli">
-                    <img class="imagen" :src="pelicula_seleccionada.imagen" :alt="pelicula_seleccionada.nombre">
-                    <div class="info">
-                        <h2>{{pelicula_seleccionada.nombre}}</h2>
-                        <p>{{pelicula_seleccionada.descripcion}}</p>
-                        <iframe class="trailer" :src="pelicula_seleccionada.trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        <p>Duracion:        {{pelicula_seleccionada.duracion}}</p>
-                        <p>Idioma:          {{pelicula_seleccionada.idioma}}</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
-    <footer>
-        <img class="footer-logo" src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="110">
-        <a href="https://github.com/Franco-Schendel/CRUD-ProyectoFinal" target="_blank"><i class='bx bxl-github icono'></i></a>
-        <span>Copyright &copy 2023 Filmópolis</span>
-    </footer>
-    <script 
-src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <footer id="footer"></footer>
+    <script src="js/header_footer.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/peliculas.js"></script>
 </body>
 </html>
