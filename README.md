@@ -19,12 +19,13 @@
   * [API](https://francoschendel.pythonanywhere.com/)
   * [FILMOPOLIS](https://filmopolis-codoacodo.netlify.app/)
 ## Funcionamiento
-  ### Ingresar
+### Ingresar
   <p align="center">
     <img src="./img-readme/Index.png" alt="Index" width="60%" height="auto">
     <img src="./img-readme/Formulario.png" alt="Formulario" width="60%" height="auto">
   </p>
-  ### Cliente
+  
+### Cliente
   Esta es la pagina `index.html`. Es la primera página a la que accede el usuario, el cual necesita registrarse o iniciar sesión para ingresar.
   <p align="center">
     <img src="./img-readme/Peliculas.png" alt="Peliculas" width="60%" height="auto">
@@ -34,7 +35,8 @@
     <img src="./img-readme/Info-pelicula.png" alt="Info-Pelicula" width="60%" height="auto">
   </p>
   Al dar click en una pelicula, el cliente se dirige a la página `info_pelicula.html` que le muestra mas en detalle los datos de la API. Vemos una imagen, título, descripción, trailer, duración e idioma.
-  ### Administrador
+
+### Administrador
   <p align="center">
     <img src="./img-readme/CRUD.png" alt="Info-Pelicula" width="60%" height="auto">
   </p>
