@@ -132,3 +132,13 @@ body {
 .mostrar {
     display: flex;
 }
+
+.sin-sesion {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.5rem;
+}

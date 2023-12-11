@@ -27,14 +27,17 @@ const { createApp } = Vue
                 fetch(this.url + `/validar-usuario/${this.nombre}/${this.contrasenia}`)
                 .then(response => response.json())
                 .then(data => {
-                    switch(data) {
+                    console.log("USUARIO: ", data)
+                    switch(data.rango) {
                         case "":
                             alert("El usuario o contraseña es incorrecto")
                             break
                         case "admin":
+                            localStorage.setItem("usuario", data.usuario)
                             window.location.href = "./CRUD.html"
                             break;
                         case "cliente":
+                            localStorage.setItem("usuario", data.usuario)
                             window.location.href = "./peliculas.html"
                     }
                 })
@@ -75,3 +78,9 @@ const { createApp } = Vue
         }
     },
   }).mount('#app')
+
+
+function continuar_sin_sesion() {
+    localStorage.setItem("usuario", "")
+    window.location.href = "peliculas.html"
+}

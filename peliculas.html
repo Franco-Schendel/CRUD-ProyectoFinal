@@ -41,9 +41,12 @@
                         </div>
                         <div class="body-peliculas">
                             <article class="pelicula aparecer" v-for="pelicula in peliculas" v-if="cargar">
-                                <a :href="'info_pelicula.html?id=' + pelicula.id">
+                                <a v-if="logueado" :href="'info_pelicula.html?id=' + pelicula.id">
                                     <img class="pelicula-imagen" :src="pelicula.imagen" :alt="pelicula.nombre">
                                 </a>
+                                <div v-else onclick="sin_cuenta()">
+                                    <img class="pelicula-imagen" :src="pelicula.imagen" :alt="pelicula.nombre">
+                                </div>
                                 <div class="pelicula-titulo">
                                     <span class="resaltado">{{pelicula.nombre}}</span>
                                 </div>

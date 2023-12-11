@@ -10,6 +10,7 @@ const { createApp } = Vue
         peliculas:[],
         url:'https://francoschendel.pythonanywhere.com',
         error:false,
+        logeado:false,
         cargando:true,
         cargar:true,
         id:0,
@@ -43,6 +44,8 @@ const { createApp } = Vue
             fetch(url + "/peliculas")
                 .then(response => response.json())
                 .then(data => {
+                    let usuario = localStorage.getItem("usuario")
+                    usuario==""?this.logueado=false:this.logueado=true
                     this.peliculas = data;
                     this.cargando=false
                 })
@@ -55,6 +58,8 @@ const { createApp } = Vue
             fetch(this.url + "/peliculas")
                 .then(response => response.json())
                 .then(data => {
+                    let usuario = localStorage.getItem("usuario")
+                    usuario==""?this.logueado=false:this.logueado=true
                     this.peliculas=[]
                     for(let i = 0; i < data.length; i++) {
                         data[i].categoria==categoria?this.peliculas.push(data[i]):null;
@@ -71,6 +76,8 @@ const { createApp } = Vue
             fetch(this.url + "/peliculas")
                 .then(response => response.json())
                 .then(data => {
+                    let usuario = localStorage.getItem("usuario")
+                    usuario==""?this.logueado=false:this.logueado=true
                     this.peliculas=[]
                     let nombre
                     for(let i = 0; i < data.length; i++) {
@@ -233,6 +240,6 @@ function mostrar_categorias() {
     categorias_visibles = !categorias_visibles
 }
 
-function Hola(e) {
-    e.preventDefault()
+function sin_cuenta() {
+    alert("Necesitas una cuenta para ver la pelicula")
 }
