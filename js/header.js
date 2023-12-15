@@ -3,7 +3,7 @@ header.innerHTML = `<nav>
                         <ul class="menu-normal">
                             <li><a href="#"><img src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="120"></a></li>
                             <li class="pelis"><a href="peliculas.html"><i class='bx bx-movie icono'></i>Lista Peliculas</a></li>
-                            <li><span href="index.html" class="logout" id="logout"><i class='bx bx-log-out'></i>Log out</span></li>
+                            <li><span class="logout" id="logout"><i class='bx bx-log-out'></i>Log out</span></li>
                         </ul>
                         <ul class="menu-hamburguesa">
                             <li><a href="#"><img src="./img/Filmopolis.png" alt="logo-FilmoPolis" width="120"></a></li>
@@ -31,8 +31,15 @@ hamburguesa.addEventListener("click", ()=>{
         hamburguesa.innerHTML += `<div class="contenido-hamburguesa">
                                 <ul>
                                     <li><a href="peliculas.html"><i class='bx bx-movie icono'></i>Lista Peliculas</a></li>
-                                    <li><span href="index.html" class="logout" id="logout"><i class='bx bx-log-out'></i>Log out</span></li>
+                                    <li><span class="logout" id="logout-hamburguesa"><i class='bx bx-log-out'></i>Log out</span></li>
                                 </ul>
                                 </div>`
+                        
+        logout = document.getElementById("logout-hamburguesa")
+
+        logout.addEventListener("click", ()=>{
+            localStorage.clear()
+            window.location.href="index.html"
+        })           
     }
 })
