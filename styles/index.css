@@ -108,7 +108,7 @@ body {
     right: 2rem;
     cursor: pointer;
     color: var(--color-primario);
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .formulario input[type="text"]:focus,.formulario input[type="password"]:focus {
@@ -148,5 +148,11 @@ body {
     .index .contenedor {
         padding: 5rem 3rem;
         justify-content: space-around;
+    }
+
+    .formulario {
+        width: 100%;
+        min-width: auto;
+        padding: 3rem;
     }
 }
