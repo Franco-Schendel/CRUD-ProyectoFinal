@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 3rem;
     width: 100%;
     height: 80%;
@@ -26,8 +26,9 @@ body {
 }
 
 .index .contenedor .logo {
-    width: 40%;
-    min-width: 400px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 600px;
     height: auto;
     opacity: 0;
     animation: 800ms ease-out aparecer-izquierda;
@@ -141,4 +142,11 @@ body {
     text-decoration: underline;
     cursor: pointer;
     font-size: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+    .index .contenedor {
+        padding: 5rem 3rem;
+        justify-content: space-around;
+    }
 }

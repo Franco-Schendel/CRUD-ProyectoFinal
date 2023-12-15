@@ -191,3 +191,10 @@ footer .footer-logo {
         transform: translateX(0) scale(1);
     }
 }
+
+@media screen and (max-width:500px) {
+    :root {
+        --color-primario: #F1DD4B;
+        font-size: 10px;
+    }   
+}
