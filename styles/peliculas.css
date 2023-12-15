@@ -105,6 +105,7 @@ body {
 }
 
 .body-peliculas .pelicula {
+    margin: auto;
     position: relative;
     width: 250px;
     height: 400px;
@@ -165,6 +166,23 @@ body {
     margin: auto;
 }
 
-.oculto {
-    display: none;
+@media screen and (max-width: 800px) {
+    .header-peliculas {
+        padding: 1rem 5rem;
+    }
+
+    .body-peliculas {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 5rem;
+    }
+
+    .body-peliculas .pelicula{
+        width: 100%;
+        height: auto;
+    }
+    
+    .buscadores {
+        flex-wrap: wrap;
+    }
 }
