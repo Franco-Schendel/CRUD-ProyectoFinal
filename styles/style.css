@@ -54,6 +54,10 @@ span.resaltado {
     transform: translate(-50%, -50%);
 }
 
+.oculto {
+    display: none;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -90,6 +94,10 @@ header nav ul a {
 
 header nav ul a:hover{
     transform: scale(1.1);
+}
+
+.menu-hamburguesa {
+    display: none;
 }
 
 .logout {
@@ -192,9 +200,44 @@ footer .footer-logo {
     }
 }
 
-@media screen and (max-width:500px) {
-    :root {
-        --color-primario: #F1DD4B;
-        font-size: 10px;
-    }   
+@media screen and (max-width:700px) {
+    .menu-normal {
+        display: none;
+    }
+    .menu-hamburguesa {
+        display: flex;
+    }
+
+    #hamburguesa {
+        position: relative;
+    }
+
+    .menu-hamburguesa .icono {
+        color: var(--color-primario);
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+
+    .contenido-hamburguesa {
+        background-color: #1C1817;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 60vw;
+        height: 150px;
+        padding: 1rem;
+    }
+
+    .contenido-hamburguesa ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    header {
+        padding: 1rem 5rem;
+    }
 }
