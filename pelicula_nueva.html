@@ -4,8 +4,8 @@
     <title>FilmoPolis - Agregar Pelicula</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./styles/CRUD.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/CRUD.css">
   </head>
   <body>
     <main>
@@ -19,7 +19,11 @@
         <input type="text" name="idioma" id="idioma" v-model="idioma" placeholder="Idioma">
         <input type="text" name="imagen" id="imagen" v-model="imagen" placeholder="Imagen">
         <img width="100" :src="imagen" :alt="nombre">
-        <button type="button" class="btn btn-success" v-on:click="grabar()">Grabar</button>
+        <div style="display: flex;justify-content: space-around;">
+          <a href="CRUD.html" class="boton cancelar">Cancelar</a>
+          <button type="button" class="btn btn-success" v-on:click="grabar()">Grabar</button>
+        </div>
+        
       </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -19,7 +19,10 @@
       <input type="text" name="idioma" id="idioma" v-model="idioma" placeholder="Idioma">
       <input type="text" name="imagen" id="imagen" v-model="imagen" placeholder="Imagen">
       <img width="100" :src="imagen" :alt="nombre">
-      <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>
+      <div style="display: flex;justify-content: space-around;">
+        <a href="CRUD.html" class="boton cancelar">Cancelar</a>
+        <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>
+      </div>
     </form>
   </main>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

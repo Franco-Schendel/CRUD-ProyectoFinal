@@ -31,7 +31,7 @@ td, th {
     padding: 1rem;
 }
 
-.eliminar {
+.eliminar, .cancelar {
     background-color: #F00000;
 }
 
@@ -75,4 +75,18 @@ td, th {
 
 .buscador .lupita {
     cursor: pointer;
+}
+
+@media screen and (max-width:700px) {
+    .contenedor-nueva-peli {
+        background-color: #000000A0;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 500px;
+        width: 100%;
+        border-radius: 1rem;
+    }
+    
 }
