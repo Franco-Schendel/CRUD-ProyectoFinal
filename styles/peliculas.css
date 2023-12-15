@@ -181,8 +181,33 @@ body {
         width: 100%;
         height: auto;
     }
-    
+
     .buscadores {
         flex-wrap: wrap;
+    }
+
+    .info_peli {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info_peli .imagen{
+        width: 100%;
+        height: auto;
+    }
+
+    .info_peli .info {
+        width: 100%;
+        height: auto;
+        padding: 0 2rem;
+    }
+    
+    .trailer {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        min-width: 200px;
+        margin: auto;
     }
 }
